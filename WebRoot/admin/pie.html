@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!--Step:1 Import a module loader, such as esl.js or require.js-->
+    <!--Step:1 引入一个模块加载器，如esl.js或者require.js-->
+    <script src="../js/echarts/esl.js"></script>
+    <script src="../js/jquery-1.8.3.js"></script>
+</head>
+
+<body>
+    <!--Step:2 Prepare a dom for ECharts which (must) has size (width & hight)-->
+    <!--Step:2 为ECharts准备一个具备大小（宽高）的Dom-->
+    <div id="main" style="height:500px;border:1px solid #ccc;padding:10px;"></div>
+    
+    <script type="text/javascript">
+$(function(){
+    //获取商品分类数据
+    var typeData;
+     var typeName=new Array();
+     //获取ajax获取服务器分类数据
+     $.ajax({type:"GET",url:"/uushop/bookType_getAnalysisTypeData.do",async:false,
+    	 success:function(data){
+     		typeData=eval('('+data+')');
+	     	//获取分类名称
+	         $.each(typeData,function(i,item){
+	         	typeName[i]=item.name;
+	         });
+     	}
+     });  	
+
+    // Step:3 conifg ECharts's path, link to echarts.js from current page.
+    // Step:3 为模块加载器配置echarts的路径，从当前页面链接到echarts.js，定义所需图表路径
+    require.config({
+        paths:{ 
+            echarts:'../js/echarts/echarts',
+            'echarts/chart/bar' : '../js/echarts/echarts',
+            'echarts/chart/line': '../js/echarts/echarts'
+        }
+    });
+    
+    // Step:4 require echarts and use it in the callback.
+    // Step:4 动态加载echarts然后在回调函数中开始使用，注意保持按需加载结构定义图表路径
+
+    require(
+        [
+            'echarts',
+            'echarts/chart/bar',
+            'echarts/chart/line'
+        ],
+        function(ec) {
+            var myChart = ec.init(document.getElementById('main'));
+            var option = {
+                title : {
+                    text: '系统商品分类统计',
+                    subtext: '',
+                    x:'center'
+                },
+                tooltip : {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    orient : 'vertical',
+                    x : 'left',
+                    data:typeName
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        mark : true,
+                        dataView : {readOnly: false},
+                        restore : true,
+                        saveAsImage : true
+                    }
+                },
+                calculable : true,
+                series : [
+                    {
+                        name:'商品分类',
+                        type:'pie',
+                        radius : '55%',
+                        center: ['50%', 225],
+                        data:typeData
+                    }
+                ]
+            };
+            myChart.setOption(option);
+        }
+    );
+    
+});
+    </script>
+</body>
+</html>

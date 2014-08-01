@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>折叠/展开</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript"> 
+function changeWin(){	
+	if(window.parent.bottom.cols == "235,10,*")
+	{
+		top.bottom.cols = "0,10,*";
+		document.getElementById('menuSwitch').innerHTML = "<img src='../images/split2.png' width=10 height=106>";
+	}
+	else
+	{
+		top.bottom.cols = "235,10,*";
+		document.getElementById('menuSwitch').innerHTML = "<img src='../images/split1.png' width=10 height=106>";
+	}
+}
+</script>
+</head>
+
+<body bgcolor="#B34830" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" oncontextmenu="return false">
+<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+	<tbody>
+    <tr> 
+      <td> 
+		<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+		  <tbody>
+          <tr> 
+          <td width="100%" height="100%" id="menuSwitch" onClick="changeWin()" title="折叠/展开菜单" style="cursor:pointer"><img src="../images/split1.png" name="ff" width="10" height="106"></td>
+		  </tr>
+	    </tbody>
+        </table>
+	  </td>
+	  <td height="100%" width="1" bgcolor="#dddddd"></td>
+    </tr>
+	</tbody>
+</table>
+
+</body>
+</html>

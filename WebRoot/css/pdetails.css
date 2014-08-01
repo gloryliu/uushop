@@ -1,0 +1,96 @@
+@charset "utf-8";
+/*图书信息*/
+.bookTitle{ font-size:16px; text-align:left; margin-bottom:20px;}
+.showPic{ width:352px; height:auto; float:left}
+.big{border:1px solid #eaeaea;position:relative;background-color:#fff}
+.big a{display:block;height:350px;width:350px;overflow:hidden;text-align:center}
+
+.bookDetails{ width:390px; height:auto; float:right; overflow:hidden; margin-left:10px; text-align:left;}
+.bookDetails p{ line-height:32px;}
+.bookDetails p span{ width:130px; display:block; float:left;}
+.b_price{color:#c30; font-size:20px;}
+.wannaBuy{ display:block; height:32px; width:390px;position: relative; line-height: 32px;}
+.wannaBuy .cut{left:60px;}
+.wannaBuy .input_mini{ position:absolute;left:77px;}
+.wannaBuy .add{left:120px;}
+.bookDetails p .allCount{  float:right}
+
+.buy_area{background-color:#f5f5f5;border:1px solid #e9e9e9;padding:17px 0 15px 13px;margin:-1px 0 9px;zoom:1}
+.buy_area .text{border:1px solid #aaabad;color:#020202;font-family:Arial;height:15px;line-height:15px;padding:0 3px;margin:0 10px 0 3px;width:20px;background-color:#fff;text-align:center}
+.buy_area .btn_p{margin-top:17px;font-size:0;position:relative}
+/*图片定位,图片的对齐及块状显示问题*/
+.btn{ background:url(../images/sprite.png) no-repeat; display:inline-block; vertical-align:middle;} 
+.btn_buy{background-position:0 -70px;margin-right:16px;height:36px;width:146px}
+a.btn_buy:hover{background-position:0 -106px}
+.buy_area .btn_collect{background-position:0 -220px;height:21px;margin-top:4px;width:80px}
+.buy_area a.btn_collect:hover{background-position:0 -241px}
+
+/*最近浏览*/
+.bunket{ width:738px; height:auto; border:1px solid #e9e9e9; text-align:left; padding-left:20px; position:relative;}
+.bunket h3{ padding-top:10px; margin-left:-10px;}
+.bunket .over{ width:675px; height:260px;overflow:hidden; margin-left:13px;}
+.btn_a{height:230px;border:0;width:36px;background-color:transparent}
+.prev_none span{ background-position:-147px -142px; margin-top:84px;display:inline-block;height:31px;overflow:hidden;width:14px;vertical-align:middle}
+.next_none span{ background-position:-161px -142px; margin-top:84px;display:inline-block;height:31px;overflow:hidden;width:14px;vertical-align:middle}
+#a_alsobuy_pic_pre,#alsobuy_pic_next{position:absolute;cursor: pointer;border:1px solid #fff}
+#a_alsobuy_pic_pre{ left:5px; top:50px;}
+#alsobuy_pic_next{right:5px; top:50px; }
+#a_alsobuy_pic_pre:hover,#alsobuy_pic_next:hover{border:1px solid #e9e9e9}
+.over ul{padding:10px 0 20px 0;height:230px; width:10000px;}
+.over ul li{ float:left; overflow:hidden;width:152px;margin:8px; 23px 0 15px;height:230px;_display:inline;font-size:12px;}
+.over ul li>a{ display:block; width:150px; height:150px; border:1px solid #FFF; margin-top:20px;}
+.over ul li>a:hover{border:1px solid #F60;}
+.over ul li p{ line-height:30px; text-align:center;}
+
+/*商品详情/评论*/
+.tab_re{ width:760px; height:auto; margin-top:20px;}
+.b_detail{ width:738px; min-height:245px; text-align: left; padding: 10px; overflow: hidden;}
+.comment{width:618px; height:140px; overflow: hidden;padding:0 15px 18px 105px; position: relative; border-bottom: 1px solid #ebebeb;}
+.comment.last{border:none;}
+.comment .pl_photo{position:absolute;left:15px;top:20px;width:60px;overflow:hidden}
+.comment .pl_photo p span{display:inline-block;width:auto;float:none;color:#666;margin:7px 0;_margin:5px 0 7px}
+.comment  .pl_photo .name{margin:6px 0 0;height:14px;overflow:hidden}
+.comment .title_top{height:16px;line-height:16px;padding-top:22px; font-weight: bold; font-size:14px; }
+.comment .title{line-height:16px;padding:10px 0;}
+.comment .title span{display:inline-block;vertical-align:top;margin-top:1px; float:left;}
+.comment .level{color:#878787}
+.starlevel{background: url(../images/sprite.png) no-repeat;display: inline-block;vertical-align: middle;}
+.starlevel{margin-left:15px;position:relative;top:1px;height: 12px;overflow: hidden;position: relative;top: -1px;width: 60px}
+.s5{background-position:0 -20px}
+.comment .title .time{float:right;color:#878787;}
+.comment .s_cont{line-height:24px;min-height:24px;height:auto!important;height:24px;overflow:visible}
+.comment .operation{overflow:hidden;padding-top:7px;}
+.comment .operation a{color:#a8a8a8;display:inline-block;padding-left:19px;height:16px;overflow:hidden;line-height:16px;background:url(../images/bg_jf.png) no-repeat 0 -32px;margin-right:23px;line-height:17px\0;*line-height:17px;_line-height:20px}
+.comment .operation a:hover{color:#6bc6ea;background-position:-81px -32px}
+.comment .operation a:hover.icon_hf{background-position:-81px -47px}
+.comment .operation a:hover.icon_zt{background-position:-81px -67px}
+.comment .operation .icon_hf{background-position:0 -47px}
+
+/*图书搜索结果样式*/
+.result_div{width:736px; height:202px; border:2px solid #dbebbc; padding:10px; text-align:left; position:relative; margin-bottom:10px;}
+.result_div .search_pic{ width:202px; height:202px;float:left;}
+.result_div .search_pic .search_pic_a{ display:block; width:140px; height:160px; border:1px solid #fff; margin-top:20px;}
+.result_div .search_pic .search_pic_a:hover{border:1px solid #f00;}
+.result_div .search_book_title{ line-height:28px; font-size:14px; margin-top:12px;}
+.search_right_content{ width:530px; height:202px;float:right; position:relative;}
+.book_info{width:530px; height:100px;overflow:hidden;}
+.search_buy_btn{ float:right; }
+
+/*对搜索结果进行分页*/
+.f_dividePage{ display:block; width:760px; height:40px; line-height:40px; margin-top:20px; }
+.f_dividePage a{ display:inline-block; height:32px; width:50px; background:#dbebbc; margin-top:4px; margin-right:10px;-webkit-border-radius: 5px;-moz-border-radius: 5px;-khtml-border-radius: 5px;border-radius: 5px; font-size:13px; padding-bottom:4px; text-decoration:none;}
+.f_dividePage a:hover{background:#09F;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

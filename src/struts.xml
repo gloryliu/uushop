@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<!-- 指定Web应用的默认编码集,相当于调用HttpServletRequest的setCharacterEncoding方法 -->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <!-- 该属性指定需要Struts 2处理的请求后缀，该属性的默认值是action，即所有匹配*.action的请求都由Struts2处理。
+    如果用户需要指定多个请求后缀，则多个后缀之间以英文逗号（,）隔开。 -->
+    <constant name="struts.action.extension" value="do"/>
+    <!-- 设置浏览器是否缓存静态内容,默认值为true(生产环境下使用),开发阶段最好关闭 -->
+    <constant name="struts.serve.static.browserCache" value="false"/>
+    <!-- 当struts的配置文件修改后,系统是否自动重新加载该文件,默认值为false(生产环境下使用),开发阶段最好打开 -->
+    <constant name="struts.configuration.xml.reload" value="true"/>
+    <!-- 开发模式下使用,这样可以打印出更详细的错误信息 -->
+    <constant name="struts.devMode" value="false" />
+     <!-- 默认的视图主题 -->
+    <constant name="struts.ui.theme" value="simple" />
+    <!-- struts交给spring管理 -->
+    <constant name="struts.objectFactory" value="spring" />
+    
+	<package name="default" namespace="/" extends="struts-default">
+		<default-action-ref name="IndexAction.do" />
+		<global-results>
+			 <result >index.jsp</result> 
+		</global-results>
+		<action name="IndexAction" class="indexAction">
+			
+		</action>
+		<action name="user_*" class="userAction"  method="{1}">
+			<result name="success" type="redirect">${nextPage}</result>
+			<result name="fail"  type="redirect">${nextPage}</result>
+			<result name="toAction"  type="redirectAction" >${nextPage}</result>
+			<result name="toUserCenter"  type="redirect" >/user/userCenter.jsp</result>
+		</action>
+		<action name="valcode" class="valcodeAction">
+			<result type="stream" name="success">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">imageStream</param>
+				<param name="bufferSize">2048</param>
+			</result>
+		</action>
+		<action name="userRegister" class="userRegisterAction" method="register">
+			<interceptor-ref name="tokenSession"  />
+			<interceptor-ref name="defaultStack"  />
+			<result name="success" type="redirect">/user/login.jsp</result>
+			<result name="fail"  type="redirect">/user/register.jsp</result>
+		</action>
+		<action name="userLogin_*" class="userLoginAction" method="{1}">
+			<result name="success" type="redirect">${nextPage}</result>
+			<result name="fail"  type="redirect">${nextPage}</result>
+		</action>
+		<action name="bookType_*" class="bookTypeAction" method="{1}">
+			<result name="success" >/admin/index.jsp</result>
+		</action>
+		<action name="showBook" class="showLimitBookAction" >
+			<result name="success">/admin/showBooks.jsp</result>
+		</action>
+		<action name="showAllOrder" class="showLimitOrderAction" >
+			<result name="success">/admin/showOrders.jsp</result>
+		</action>
+		<action name="showOrder" class="showApproveOrderAction" >
+			<result name="success">/admin/approve_orders.jsp</result>
+		</action>
+		<action name="showUsers" class="showLimitUserAction" >
+			<result name="success">/admin/showUsers.jsp</result>
+		</action>
+		<action name="book_*" class="bookAction" method="{1}">
+			<result name="success">${nextPage}</result>
+			<result name="error" >${nextPage}</result>
+			<result name="input" >/admin/message.jsp</result>
+			<result name="toCollectBookPage" >/user/mycollectbook.jsp</result>
+			<result type="redirectAction" name="toAction">${nextPage}</result>
+		</action>
+		<action name="*Address" class="addressAction" method="{1}">
+			<result name="success">${nextPage}</result>
+			<result name="error" >/share/message.jsp</result>
+		</action>
+		<action name="*Order" class="orderAction" method="{1}">
+			<result name="success" type="redirect">${nextPage}</result>
+			<result name="error" >/share/message.jsp</result>
+			<result type="redirectAction" name="toAction">${nextPage}</result>
+			<result name="tomyorders" >/user/myorder.jsp</result>
+			<result name="tohavepayorders" >/user/mypayed.jsp</result>
+		</action>
+		<action name="*Source" class="sourceCodeAction" method="{1}">
+			<result name="success" >${nextPage}</result>
+			<result name="error" >/share/message.jsp</result>
+		</action>
+		<action name="SystemInfo" class="systemInfo" method="execute">
+			<result name="success" >/admin/sysInfo.jsp</result>
+		</action>
+		<action name="searchAction" class="searchBookAction" method="execute">
+			<result name="success" >/product/searchResult.jsp</result>
+		</action>
+		<action name="findPassword_*" class="findPasswordAction" method="{1}">
+			<result name="success" >/user/resetPassword.jsp</result>
+			<result name="toLogin" type="redirect" >/user/login.jsp</result>
+			<result name="error" >/user/message.jsp</result>
+		</action>
+		<action name="*Notice" class="noticeAction" method="{1}">
+			<result name="success"  type="redirectAction" >/showNotice.do</result>
+			<result name="error">/share/message.jsp</result>
+		</action>
+		<action name="showNotice" class="showLimitNoticeAction" method="execute">
+			<result name="success">/admin/showNotices.jsp</result>
+		</action>
+		<action name="*Comment" class="commentAction" method="{1}">
+			<result name="success"  type="redirectAction" >/getHavePayOrder.do</result>
+			<result name="toAction"  type="redirectAction" >/showComment.do</result>
+			<result name="error">/share/message.jsp</result>
+		</action>
+		<action name="showComment" class="showLimitCommentAction" method="execute">
+			<result name="success">/admin/showComments.jsp</result>
+		</action>
+		<!-- 将图书信息以excel导出 -->
+		<action name="excelBook" class="excelAction" >
+    		<result name="toExcel"  type="stream">
+	       		<param name="contentType">application/vnd.ms-excel</param>
+	       		<param name="inputName">excelStream</param>
+	       		<param name="contentDisposition">attachment;filename="${fileName}.xls"</param>
+	       </result>
+    	</action>
+	</package>
+	
+</struts>

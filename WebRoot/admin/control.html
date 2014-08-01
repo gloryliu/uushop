@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台控制</title>
+<link  rel="stylesheet" href="../css/global.css" />
+<link  rel="stylesheet" href="../css/default/easyui.css" />
+<link  rel="stylesheet" href="../css/icon.css" />
+<script type="text/javascript" src="../js/jquery-1.8.3.js" ></script>
+<script type="text/javascript" src="../js/control.js"></script>
+<script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+</head>
+<body>
+<div class="control_left">
+<div class="sidebarmenu">
+<a class="menuitem" href="javascript:void(0);" id="menuitem_sys">系统管理<span class="statusicon" ></span></a>
+<div class="submenu on" id="menuitem_sys2">
+<ul>
+	<li><a href="about.html" target="content">系统简介</a></li>
+    <li><a href="bar.html" target="content">销售统计</a></li>
+    <li><a href="pie.html" target="content">商品分类</a></li>
+    <li class="last_item"><a href="SystemInfo.do" target="content">系统信息</a></li>
+</ul>
+</div>
+<a class="menuitem" href="javascript:void(0);" id="menuitem_info">公告管理<span class="statusicon" ></span></a>
+<div class="submenu on" id="menuitem_info2">
+<ul>
+	<li><a  href="addNotice.jsp"  target="content">发布公告</a></li>
+    <li class="last_item"><a href="showNotice.do" target="content">公告管理</a></li>
+</ul>
+</div>
+<a class="menuitem" href="javascript:void(0);" id="menuitem_cart">订单管理<span class="statusicon" ></span></a>
+<div class="submenu on" id="menuitem_cart2">
+<ul>
+	<li><a href="showAllOrder.do"  target="content">显示订单</a></li>
+    <li class="last_item"><a  href="showOrder.do"  target="content">待审批</a></li>
+</ul>
+</div>
+<a class="menuitem" href="javascript:void(0);" id="menuitem_product">图书管理<span class="statusicon" ></span></a>
+<div class="submenu on" id="menuitem_product2">
+<ul>
+	<li><a href="showBook.do"  target="content">显示图书</a></li>
+	<li><a href="excelBook.do"  target="content">导出图书</a></li>
+    <li class="last_item"><a href="addBook.jsp" target="content">添加图书</a></li>
+</ul>
+</div>
+<a class="menuitem" href="showComment.do" id="menuitem_comment" target="content">评论管理</a>
+<a class="menuitem" href="showUsers.do" id="menuitem_user" target="content">用户管理</a>
+<a class="menuitem" href="javascript:void(0);" id="menuitem_source">源码管理</a>
+<div class="submenu on" id="menuitem_source2">
+	<ul  class="easyui-tree" data-options="
+		url:'/uushop/dirJsonSource.do',method:'get',animate:true,
+		onSelect:function(node) {
+				var type = node.attributes.type;
+				if (type == 'folder') {
+					return;
+				}
+				var src = node.attributes.url;
+				var args = node.attributes.path;
+				var text = node.attributes.text;
+				var id = node.id;
+				var url =src+'?path='+args+'&id='+id;
+				editSource(url,text);
+		}
+		"></ul>
+</div>
+</div>
+</div>
+<script>
+function editSource(url,text){
+	window.parent.frames.content.location.href='http://localhost/'+url;
+};
+</script>
+</body>
+</html>

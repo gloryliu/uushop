@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	  
+	  <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+	      <property name="persistenceUnitName" value="uushop"/>
+	  </bean>  
+	  <bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+	  	<property name="entityManagerFactory" ref="entityManagerFactory"/>
+	  </bean>
+	  <tx:annotation-driven transaction-manager="txManager"/>
+	  <context:annotation-config/>
+	  <context:component-scan base-package="com.liaoyu.*"  />
+	  
+   <bean id="compass" class="org.compass.spring.LocalCompassBean">
+		<property name="classMappings">
+			<list>
+				<value>com.liaoyu.bean.book.Book</value>
+				<value>com.liaoyu.bean.book.BookType</value>
+			</list>
+		</property>
+		<property name="compassSettings">
+			<props>
+				<prop key="compass.engine.analyzer.default.type">net.paoding.analysis.analyzer.PaodingAnalyzer</prop>
+				<prop key="compass.engine.connection">file://d:/compass_index</prop>
+				<!-- 在内存中建立索引
+				<prop key="compass.engine.connection">ram://index</prop>
+				-->
+				<prop key="compass.engine.highlighter.default.formatter.simple.pre"><![CDATA[<font color='red'>]]></prop>
+				<prop key="compass.engine.highlighter.default.formatter.simple.post"><![CDATA[</font>]]></prop>
+				<prop key="compass.transaction.factory">org.compass.spring.transaction.SpringSyncTransactionFactory</prop>
+			</props>
+		</property>
+		<property name="transactionManager" ref="txManager" />
+	</bean>
+
+	<!-- 自动完成 索引的添加/更新/删除操作-->
+	<bean id="compassGps" class="org.compass.gps.impl.SingleCompassGps" init-method="start" destroy-method="stop">
+		<property name="compass" ref="compass" />
+		<property name="gpsDevices">
+			<list>
+				<!-- 设置JPA驱动 -->
+				<bean class="org.compass.gps.device.jpa.JpaGpsDevice">
+						<property name="name" value="jpaDevice" />
+						<property name="entityManagerFactory" ref="entityManagerFactory" />
+						<property name="injectEntityLifecycleListener" value="true"/>
+				</bean>
+			</list>
+		</property>
+	</bean>	
+	  
+<!-- 
+	<aop:aspectj-autoproxy />
+ -->
+</beans>

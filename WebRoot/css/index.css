@@ -1,0 +1,116 @@
+@charset "utf-8";
+/*幻灯片展示图片*/
+.pic_show{width:760px; height:270px; overflow:hidden;}
+.slides_wrap .prev {
+	position: absolute;
+	left:205px;
+	top: 100px;
+	outline: 0;
+}
+
+.slides_wrap .next {
+	position: absolute;
+	right:10px;
+	top: 100px;
+	outline: 0;
+}
+.bx_pager {
+	position: absolute;
+	right:0px;
+	top: 230px;
+	padding-right: 5px;
+	padding-top: 5px;
+}
+
+.bx_pager a {
+	float: left;
+	background: url(../images/bg_pager.png) no-repeat 0 -21px;
+	width: 16px;
+	height: 16px;
+	color: #fff;
+	font-size: 11px;
+	margin-right: 6px;
+	padding: 2px;
+}
+
+.bx_pager a:hover, .bx_pager a.active {
+	background-position: 0 0;
+	text-decoration: none;
+}
+
+/*定义tab_hot*/
+.tab_hot{ width:760px; height:400px; margin-top:10px;}
+
+/*定义tab_hot里的内容*/
+.hot_book{ width:758px; height:360px;}
+.comment_book{ width:758px;height:360px;}
+.store_book{ width:758px; height:360px;}
+
+.book_ul li{ display:block;height:162px; float:left; padding:16px 10px 0 18px;}
+.book_ul .pic{ width:120px; height:120px; border:1px solid #ddd;}
+.book_ul .title{ width:102px; line-height:16px; font-size:13px;  overflow:hidden;}
+.book_ul .price{ width:102px; line-height:16px;font-size:13px; color:#C00;overflow:hidden;}
+
+.detail{ width:212px; height:324px; float:left; padding:13px 18px;}
+.book_title{ line-height:30px;}
+.book_title a{color:#1a66b3;font-size:14px;font-weight:bold;}
+.book_title a:hover{color:#1a66b3;text-decoration:underline;}
+.detail .price_d {color:#c30;font-family:Arial;font-size:14px;font-weight:bold;}
+.detail .price_d em {padding-left:2px;}
+.detail .description {color:#878787;height:36px;margin-top:4px;}
+/*推荐图书*/
+.recommend{ height:152px; overflow:hidden; padding:12px 10px 2px}
+.num {height:29px;margin-right:5px;width:26px;background:url(../images/bg_book.png)  no-repeat -600px -30px;float:left;height:20px;overflow:hidden;width:22px;}
+.num2{background-position:-600px -60px;}
+.num3{background-position:-600px -80px}
+.num4{background-position:-600px -100px}
+.num5{background-position:-600px -120px;}
+.num6{background-position:-600px -140px;}
+.recommend .pic{float:left;border:1px solid #fff;height:150px;position:relative;width:150px; margin-left:20px;}
+.description_content{ width:520px; height:152px; text-align:left; overflow:hidden; float:left; margin-left:10px;}
+.description_content p{color:#404040;cursor:default;height:18px;padding-top:2px; text-align:left}
+.description_content .title{height:18px;overflow:hidden; margin-top:20px;}
+.description_content .title a{color:#1a66b3;font-size:14px;overflow:hidden;line-height:19px\9;}
+.description_content .title a:hover{color:#1a66b3;text-decoration:underline;}
+.description_content .price_d{color:#c30;font-family:Arial;font-weight:bold;}
+.description_content .discount {color:#5ea593;padding-left:10px;}
+.description_content .tip {color:#878787;cursor:default;height:auto;overflow:hidden;}
+/*推荐作家*/
+.hot_author{ width:446px; height:348px; float:left; text-align:left; padding:10px 10px 10px 20px;}
+.hot_author .pic {float:left;border:1px solid #fff;height:120px;position:relative;width:120px;}
+.author_detail{ width:280px; height:122px; float:right; overflow:hidden}
+.author_detail .author_name{ font-size:16px; font-weight:bold}
+.author_detail .author_info{ color:#666;line-height:20px;padding-top:2px;}
+.author_books{ width:220px; height:120px; float:left}
+.author_books .pic {float:left;border:1px solid #fff;height:100px;position:relative;width:80px;}
+.author_books img{ width:80px; height:100px;}
+.author_books .title{ margin-top:20px; margin-bottom:10px;}
+.author_books .price_d{color:#c30;font-family:Arial;font-weight:bold;}
+.author_books .discount {color:#5ea593;padding-left:10px;}
+
+#rmzz_text{ width:260px; height:367px;float:right; text-align:center; padding-left:20px;}
+#rmzz_text ul li{ display:block; line-height:32px; font-size:14px; border-bottom:1px solid #CCC}
+#rmzz_text ul .last{ border:none}
+
+/*推荐功能*/
+.reBooks .recommend_function li{border-top:1px solid #ebebeb;height:24px;overflow:hidden;vertical-align:middle; position:relative; padding-top:4px;}
+.reBooks .recommend_function .first{border:none;}
+.reBooks .recommend_function li a{ width:172px; height:23px;}
+.reBooks .recommend_function li a span{cursor:pointer;display:inline-block; }
+.reBooks .recommend_function li a .icon {height:16px;left:4px;overflow:hidden;position:absolute;width:19px;}
+
+
+/*定义首页的其它模块*/
+.showOthers{ width:760px; height:400px; overflow:hidden; margin-bottom:13px;}
+.book_guess_top {background:url(../images/bg_book_moudle_top.png) no-repeat 0 -33px;border-bottom:2px solid #9fce72;height:30px;overflow:hidden;width:760px; text-align:left;}
+.book_guess_top h2 {color:#568c21;cursor:default;font-weight:bold;font-size:14px;height:18px;padding:7px 0 5px 22px;padding:8px 0 4px 22px\9;}
+.book_guess_content_panel{ width:758px; height:367px; border:1px solid #9fce72; border-top:none;}
+
+/*今日作者*/
+.author_photo{ display:block; width:70px; heigth:70px; float:left;}
+.author_photo img{ width:70px; height:70px;}
+.author_name2{width:90px;float:right; text-align:center;overflow:hidden; margin-top:22px;}
+.reBooks ul li{ margin-top:2px;}
+
+
+

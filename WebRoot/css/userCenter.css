@@ -1,0 +1,73 @@
+@charset "utf-8";
+/* 定义左部导航*/
+.user_center{ border:1px solid #ccc; text-align:left;position:relative;}
+.left_title{border-top:1px solid #ddd;border-bottom:1px solid #ddd;height:27px;line-height:27px;padding-left:10px;background-color:#f7f7f7;position:relative;}
+.user_center_header{position:relative;}
+.user_center_header .slideUp{display:block;height:15px;width:15px; cursor:pointer; background:url(../images/mycenter_icon.png) 3px 4px no-repeat;position:absolute;right:8px;top:6px;}
+.user_center_header .slideDown{background-position:-14px 6px;}
+.user_center_header ul li{ line-height:25px; height:25px;}
+.user_center_header ul li a{ padding-left:23px;}
+
+/*右侧体*/
+.user_right_div{width:716px;border:2px solid #ddd; min-height:246px; overflow:hidden; padding:20px;}
+.mini_btn{width:71px; height:18px; background-position:0 -299px; color:#fff; padding-top:3px; text-align:center;}
+.mini_btn:hover{background-position:0 -330px; color:#fff; text-decoration:none;}
+
+/*用户个人基本信息左侧*/
+.info_left{ width:460px; min-height:400px;float:left; text-align:left;}
+.info_right{ width:256px; min-height:400px;float:right;text-align:left;}
+.info_p{display:block; width:460px; height:50px;  line-height:50px; font-size:13px; overflow:hidden;}
+.ope_div{ width:460px; height:21px;}
+.ope_div a{ margin-right:20px; float:right;}
+.cpassword_span{ display:inline-block; width:100px; height:20px;}
+.info_p .input4{vertical-align:middle;}
+/*修改头像样式*/
+.user_header{ width:200px; height:200px; background:#666; overflow:hidden; border:1px solid #ddd;}
+.user_header:hover{ border-color:#09C}
+
+/*找回密码*/
+.user_unlogin{width:916px;border:2px solid #ddd; min-height:300px; overflow:hidden; padding:20px; font-size:14px;}
+.send_email_div{ width:400px; height:100px; margin-top:80px;}
+
+/*重写上传文件样式*/
+.btn_addPic{
+    display: block;
+    position: relative;
+    width: 140px;
+	height: 39px;
+	overflow: hidden;
+	border: 1px solid #EBEBEB;
+	background: none repeat scroll 0 0 #F3F3F3;
+	color: #999999;
+    cursor: pointer;
+	text-align: center;
+}
+.btn_addPic span{display: block;line-height: 39px;}
+.btn_addPic em {
+	background:url(../images/add_file.png) 0 0;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	overflow: hidden;
+	margin: 10px 5px 10px 0;
+	line-height: 20em;
+	vertical-align: middle;
+}
+.btn_addPic:hover em{background-position:-19px 0;}
+.filePrew {
+    display: block;
+	position: absolute;
+    top: 0;
+	left: 0;
+    width: 140px;
+	height: 39px;
+	font-size: 100px; /* 增大不同浏览器的可点击区域 */
+    opacity: 0; /* 实现的关键点 */
+	filter:alpha(opacity=0);/* 兼容IE */
+}
+
+/*定单项样式*/
+.order_item{width:716px; height:60px; overflow:hidden;}
+
+
+

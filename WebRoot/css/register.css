@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+.register_div{ width:958px; height:466px;margin-bottom:10px; border:1px solid #ccc; overflow: hidden;}
+.register_head{ width:958px; height:41px; background:url(../images/top_b1.png)}
+.register_head p{ line-height:40px; font-size:16px; text-align:left; padding-left:20px;}
+.register_body{ width:958px; height:425px; text-align:left;}
+#register_table { width:958px; height:365px; margin-top:15px;}
+#register_table>tr{ width:958px; height:48px;}
+#register_table .t{ font-size:14px; width:238px; padding-right:10px; text-align:right;}
+#register_btn{ background:url(../images/register.png) no-repeat; width:148px; height:40px; cursor:pointer;}
+.register_val{ height:60px;}
+
+
+
+
+
+
+
+
+
+

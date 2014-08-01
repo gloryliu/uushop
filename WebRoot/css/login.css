@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+/*用户登录样式*/
+.loginDiv{width:490px; height:298px;margin:0 auto; text-align:center; margin-top:40px; margin-bottom:10px; border:1px solid #ccc; border-top:none;}
+.loginDiv a{ text-decoration:underline; color:#03F;}
+.tag{ width:490px; height:58px; overflow:hidden; background:url(../images/top_b1.png) repeat-x;}
+.tag .loginTitle{line-height:42px;}
+.tagContent{ width:490px; height:240px; }
+.taglogin{ width:390px; height:181px;margin:0 auto; text-align:center; display:block; padding:0; position:relative;}
+.taglogin .loginFont{font-size:14px; padding-right:25px;}
+
