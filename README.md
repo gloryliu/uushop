@@ -1,6 +1,6 @@
 # uushop
 
-A simple book shop create by javaweb
+JavaWeb实现的优优图书商城
 
 ---
 主要功能介绍：
