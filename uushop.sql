@@ -290,11 +290,3 @@ CREATE TABLE `user` (
   PRIMARY KEY (`uid`),
   UNIQUE KEY `account` (`account`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of user
--- ----------------------------
-INSERT INTO `user` VALUES ('1', 'liaoyu753@163.com', '0', 'liaoyu753', '82f061637d40aac85f8522bf8aae5507', '20140108145305_148.jpg', '0', '0', 'MANAGER');
-INSERT INTO `user` VALUES ('2', 'liaoyu@qq.com', '0', 'liaoyu', '1d0258c2440a8d19e716292b231e3190', 'default.jpg', '0', '0', 'GENERAL');
-INSERT INTO `user` VALUES ('3', 'liaoyu@gmail.com', '0', 'liaoyu', 'b74ab688ae5df3c2dc06f0405f2e0a2f', 'default.jpg', '0', '0', 'GENERAL');
-INSERT INTO `user` VALUES ('4', 'uvonne@gmail.com', '0', 'uvonne', '057ecaa954b74e8be9b573a046a0bad3', 'default.jpg', '0', '0', 'GENERAL');
